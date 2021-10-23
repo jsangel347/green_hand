@@ -29,7 +29,7 @@ public class Producto {
 			   inverseJoinColumns = { @JoinColumn(name = "fk_material") })
 	public List<Material> materiales;
 
-	@ManyToMany(mappedBy = "productos")
+	@ManyToMany(mappedBy = "productos") 
 	@JsonIgnore
 	public List<Compra> compras;
 
