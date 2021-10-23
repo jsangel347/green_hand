@@ -21,11 +21,14 @@ public class SwaggerConfig {
 	public Docket greenHandApi() {
 		return new Docket(DocumentationType.SWAGGER_2)
 				.select()
-				.apis(RequestHandlerSelectors.basePackage("co.edu.poli.greenhand")) //Specific package
+				.apis(RequestHandlerSelectors.basePackage("co.edu.poli.greenhand"))
 				.paths(PathSelectors.any())
 				.build()
 				.apiInfo(greenHandApiInfo())
-				.tags(new Tag("Class: CompraController", "*** Compra Controller ***"));
+				.tags(new Tag("Class: CompraController", "*** Compra Controller ***"))
+				.tags(new Tag("Class: MaterialController", "*** Material Controller ***"))
+				.tags(new Tag("Class: ProductoController", "*** Producto Controller ***"))
+				;
 	}
 
 	private ApiInfo greenHandApiInfo() {
