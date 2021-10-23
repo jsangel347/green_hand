@@ -15,7 +15,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import co.edu.poli.greenhand.model.Compra;
 import co.edu.poli.greenhand.repository.CompraRepository;
-
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+@Api(tags = {"Class: CompraController"})
 @RestController
 @RequestMapping("api/compra/")
 public class CompraController {
@@ -28,23 +32,31 @@ public class CompraController {
 	}
 
 	@PostMapping("/store")
+	@ApiOperation(value="*** Service Method Post a store***", notes = "***Post a Store to MySQL///WebApp***")
+	@ApiResponses(value= {@ApiResponse(code=404, message="***Error post a store!! no path found***")})
 	public Compra insertCompra(@RequestBody Compra compra) {
 		c_repository.save(compra);
 		return compra;
 	}
 
 	@PostMapping("/store_collection")
+	@ApiOperation(value="*** Service Method Post a store***", notes = "***Post several Store to MySQL///WebApp***")
+	@ApiResponses(value= {@ApiResponse(code=404, message="***Error post several store!! no path found***")})
 	public List<Compra> insertCompras(@RequestBody List<Compra> compras_post) {
 		c_repository.saveAll(compras_post);
 		return compras_post;
 	}
 
 	@GetMapping("/get")
+	@ApiOperation(value="*** Service Method Get All store***", notes = "***Get All Store to MySQL///WebApp***")
+	@ApiResponses(value= {@ApiResponse(code=404, message="***Error Get All store!! no path found***")})
 	public List<Compra> selectCompras() {
 		return c_repository.findAll();
 	}
 
 	@PutMapping("/update/{id}")
+	@ApiOperation(value="*** Service Method Put a store by Id***", notes = "***Put a Store by Id to MySQL///WebApp***")
+	@ApiResponses(value= {@ApiResponse(code=404, message="***Error put a store by Id!! no path found***")})
 	public Compra updateCompra(@PathVariable Integer id, @RequestBody Compra compra) {
 		Compra c_update = c_repository.getById(id);
 
@@ -56,7 +68,9 @@ public class CompraController {
 		return compra;
 	}
 
-	@DeleteMapping("/delete")
+	@DeleteMapping("/delete/{id}")
+	@ApiOperation(value="*** Service Method Delete a store***", notes = "***Delete a Store to MySQL///WebApp***")
+	@ApiResponses(value= {@ApiResponse(code=404, message="***Error delete a store!! no path found***")})
 	public Object deleteCompra(@RequestParam("id") Integer id) {
 		c_repository.deleteById(id);
 		return "La compra se ha eliminado correctamente";
