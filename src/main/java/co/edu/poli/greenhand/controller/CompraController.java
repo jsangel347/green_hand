@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import co.edu.poli.model.Compra;
-import co.edu.poli.repository.CompraRepository;
+import co.edu.poli.greenhand.model.Compra;
+import co.edu.poli.greenhand.repository.CompraRepository;
 
 @RestController
 @RequestMapping("api/compra/")

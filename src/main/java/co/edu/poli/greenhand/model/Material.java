@@ -1,4 +1,4 @@
-package co.edu.poli.model;
+package co.edu.poli.greenhand.model;
 
 import java.util.Set;
 
