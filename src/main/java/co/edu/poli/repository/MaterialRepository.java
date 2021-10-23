@@ -1,5 +1,9 @@
 package co.edu.poli.repository;
 
-public class MaterialRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import co.edu.poli.model.Material;
+
+public interface MaterialRepository extends JpaRepository<Material, Integer>{
 
 }
