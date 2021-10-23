@@ -1,5 +1,5 @@
 package co.edu.poli.repository;
 
-public class ProductoRepository {
+public interface ProductoRepository {
 
 }
