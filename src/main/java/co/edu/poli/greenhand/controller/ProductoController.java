@@ -43,7 +43,7 @@ public class ProductoController {
 		
 		Mail mail = new Mail();
 		
-		mail.setMailTo("johnatandavidcallejas@gmail.com");
+		mail.setMailTo("fmoreno@poligran.edu.co");
 		mail.setMailSubject("Nuevos productos disponibles!");
 		mail.setMailContent("Ahora puedes ver nuevos productos para tu plan de reciclaje en greenhand!");
 		
