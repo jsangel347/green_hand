@@ -1,5 +1,9 @@
 package co.edu.poli.repository;
 
-public interface ProductoRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import co.edu.poli.model.Producto;
+
+public interface ProductoRepository extends JpaRepository<Producto, Integer>{
 
 }
