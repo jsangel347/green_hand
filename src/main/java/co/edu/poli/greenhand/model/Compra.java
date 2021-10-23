@@ -22,8 +22,9 @@ public class Compra {
 	public String fecha;
 
 	@ManyToMany
-	@JoinTable(name = "producto_compra", joinColumns = { @JoinColumn(name = "fk_compra") }, inverseJoinColumns = {
-			@JoinColumn(name = "fk_producto") })
+	@JoinTable(name = "producto_compra", 
+			   joinColumns = { @JoinColumn(name = "fk_compra") },
+			   inverseJoinColumns = { @JoinColumn(name = "fk_producto") })
 	public Set<Producto> productos;
 
 	public Compra() {
