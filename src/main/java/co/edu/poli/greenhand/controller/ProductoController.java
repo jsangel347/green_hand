@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import co.edu.poli.greenhand.model.Mail;
 import co.edu.poli.greenhand.model.Producto;
 import co.edu.poli.greenhand.repository.ProductoRepository;
+import co.edu.poli.greenhand.services.MailService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -27,6 +29,8 @@ public class ProductoController {
 
 	@Autowired
 	private ProductoRepository p_repository;
+	@Autowired
+	private MailService notificationService;
 	
 	public ProductoController() {
 
@@ -36,6 +40,15 @@ public class ProductoController {
 	@ApiOperation(value="*** Service Method Post a product***", notes = "***Post a product to MySQL///WebApp***")
 	@ApiResponses(value= {@ApiResponse(code=404, message="***Error post a product!! no path found***")})
 	public Producto insertProducto(@RequestBody Producto producto) {
+		
+		Mail mail = new Mail();
+		
+		mail.setMailTo("johnatandavidcallejas@gmail.com");
+		mail.setMailSubject("Nuevos productos disponibles!");
+		mail.setMailContent("Ahora puedes ver nuevos productos para tu plan de reciclaje en greenhand!");
+		
+		notificationService.sendEmail(mail);
+		
 		p_repository.save(producto);
 		return producto;
 	}
