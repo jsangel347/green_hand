@@ -16,32 +16,31 @@ public class Compra {
 
 	@Id
 	@Column(name = "id", unique = true)
-	public int id;
+	public Integer id;
 
 	@Column(name = "fecha")
 	public String fecha;
 
 	@ManyToMany
-    @JoinTable(name = "producto_compra", 
-               joinColumns = { @JoinColumn( name="fk_compra") },
-               inverseJoinColumns = { @JoinColumn(name = "fk_producto") }) 
+	@JoinTable(name = "producto_compra", joinColumns = { @JoinColumn(name = "fk_compra") }, inverseJoinColumns = {
+			@JoinColumn(name = "fk_producto") })
 	public Set<Producto> productos;
 
 	public Compra() {
 	}
 
-	public Compra(int id, String fecha, Set<Producto> productos) {
+	public Compra(Integer id, String fecha, Set<Producto> productos) {
 		super();
 		this.id = id;
 		this.fecha = fecha;
 		this.productos = productos;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

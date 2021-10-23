@@ -15,24 +15,53 @@ import javax.persistence.Table;
 @Table(name = "producto")
 public class Producto {
 
-    public Producto() {
-    }
-
-    @Id
+	@Id
 	@Column(name = "id", unique = true)
-    public int id;
-    
+	public Integer id;
+
 	@Column(name = "nombre")
-    public String nombre;
-    
-    @ManyToMany
-    @JoinTable(name = "material_producto", 
-               joinColumns = { @JoinColumn( name="fk_producto") },
-               inverseJoinColumns = { @JoinColumn(name = "fk_material") }) 
-    public List<Material> materiales;
-    
-    @ManyToMany(mappedBy = "productos", 
-            fetch = FetchType.LAZY)
-    public List<Compra> compras;
+	public String nombre;
+
+	@ManyToMany
+	@JoinTable(name = "material_producto", joinColumns = { @JoinColumn(name = "fk_producto") }, inverseJoinColumns = {
+			@JoinColumn(name = "fk_material") })
+	public List<Material> materiales;
+
+	@ManyToMany(mappedBy = "productos", fetch = FetchType.LAZY)
+	public List<Compra> compras;
+
+	public Producto() {
+	}
+
+	public Producto(Integer id, String nombre, List<Material> materiales) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.materiales = materiales;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public List<Material> getMateriales() {
+		return materiales;
+	}
+
+	public void setMateriales(List<Material> materiales) {
+		this.materiales = materiales;
+	}
 
 }
