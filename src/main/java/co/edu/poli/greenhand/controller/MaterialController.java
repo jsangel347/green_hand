@@ -3,6 +3,7 @@ package co.edu.poli.greenhand.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,6 +21,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @Api(tags = {"Class: MaterialController"})
 @RestController
 @RequestMapping("api/v1/")
@@ -32,7 +34,7 @@ public class MaterialController {
 
 	}
 
-	@PostMapping("/materials")
+	@PostMapping("/material")
 	@ApiOperation(value="*** Service Method Post a material***", notes = "***Post a material to MySQL///WebApp***")
 	@ApiResponses(value= {@ApiResponse(code=404, message="***Error post a material!! no path found***")})
 	public Material insertMaterial(@RequestBody Material material) {
@@ -40,22 +42,22 @@ public class MaterialController {
 		return material;
 	}
 
-	@PostMapping("/materials")
+	/*@PostMapping("/material")
 	@ApiOperation(value="*** Service Method Post all material***", notes = "***Post all material to MySQL///WebApp***")
 	@ApiResponses(value= {@ApiResponse(code=404, message="***Error post a material collection!! no path found***")})
 	public List<Material> insertMaterials(@RequestBody List<Material> materiales_post) {
 		m_repository.saveAll(materiales_post);
 		return materiales_post;
-	}
+	}*/
 
-	@GetMapping("/materials")
+	@GetMapping("/material")
 	@ApiOperation(value="*** Service Method Get All materials***", notes = "***Get All Materials to MySQL///WebApp***")
 	@ApiResponses(value= {@ApiResponse(code=404, message="***Error get all materials!! no path found***")})
 	public List<Material> selectMaterials() {
 		return m_repository.findAll();
 	}
 
-	@PutMapping("/materials/{id}")
+	@PutMapping("/material/{id}")
 	@ApiOperation(value="*** Service Method Put materials***", notes = "***Put Materials to MySQL///WebApp***")
 	@ApiResponses(value= {@ApiResponse(code=404, message="***Error put material!! no path found***")})
 	public Material updateMaterial(@PathVariable Integer id, @RequestBody Material material) {
@@ -70,7 +72,7 @@ public class MaterialController {
 		return material;
 	}
 
-	@DeleteMapping("/materials/{id}")
+	@DeleteMapping("/material/{id}")
 	@ApiOperation(value="*** Service Method Delete material***", notes = "***Delete Material to MySQL///WebApp***")
 	@ApiResponses(value= {@ApiResponse(code=404, message="***Error delete material!! no path found***")})
 	public Object deleteMaterial(@RequestParam("id") Integer id) {
