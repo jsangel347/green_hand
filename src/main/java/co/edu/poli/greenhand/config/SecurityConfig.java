@@ -1,4 +1,4 @@
-package co.edu.poli.greenhand.config;
+/*package co.edu.poli.greenhand.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -24,8 +24,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
             throws Exception 
     {
         auth.inMemoryAuthentication()
-            .withUser("admin")
-            .password("{noop}password")
+            .withUser("")
+            .password("")
             .roles("USER");
     }
-}
+}*/
