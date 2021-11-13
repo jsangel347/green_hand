@@ -27,7 +27,7 @@ public class Producto {
 	@JoinTable(name = "material_producto", 
 			   joinColumns = { @JoinColumn(name = "fk_producto") }, 
 			   inverseJoinColumns = { @JoinColumn(name = "fk_material") })
-	public List<Material> materiales;
+	private Set<Material> materiales;
 
 	@ManyToMany(mappedBy = "productos") 
 	@JsonIgnore
@@ -36,7 +36,7 @@ public class Producto {
 	public Producto() {
 	}
 
-	public Producto(Integer id, String nombre, List<Material> materiales) {
+	public Producto(Integer id, String nombre, Set<Material> materiales) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -59,11 +59,11 @@ public class Producto {
 		this.nombre = nombre;
 	}
 
-	public List<Material> getMateriales() {
+	public Set<Material> getMateriales() {
 		return materiales;
 	}
 
-	public void setMateriales(List<Material> materiales) {
+	public void setMateriales(Set<Material> materiales) {
 		this.materiales = materiales;
 	}
 

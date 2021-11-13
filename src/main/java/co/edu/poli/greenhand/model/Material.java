@@ -34,12 +34,13 @@ public class Material {
 	public Material() {
 	}
 
-	public Material(Integer id, String categoria, String nombre, Boolean reciclable) {
+	public Material(Integer id, String categoria, String nombre, Boolean reciclable, Set<Producto> productos) {
 		super();
 		this.id = id;
 		this.categoria = categoria;
 		this.nombre = nombre;
 		this.reciclable = reciclable;
+		this.productos = productos;
 	}
 
 	public Integer getId() {
@@ -73,5 +74,14 @@ public class Material {
 	public void setReciclable(Boolean reciclable) {
 		this.reciclable = reciclable;
 	}
+
+	public Set<Producto> getProductos() {
+		return productos;
+	}
+
+	public void setProductos(Set<Producto> productos) {
+		this.productos = productos;
+	}
+	
 
 }
