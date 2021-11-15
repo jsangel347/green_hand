@@ -75,7 +75,7 @@ public class MaterialController {
 	@DeleteMapping("/material/{id}")
 	@ApiOperation(value="*** Service Method Delete material***", notes = "***Delete Material to MySQL///WebApp***")
 	@ApiResponses(value= {@ApiResponse(code=404, message="***Error delete material!! no path found***")})
-	public Material deleteMaterial(@RequestParam("id") String id) {
+	public Material deleteMaterial(@PathVariable String id) {
 		Material _material = m_repository.findById(id).get();
 		m_repository.deleteById(id);
 		return _material;
