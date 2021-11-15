@@ -29,9 +29,6 @@ public class Producto {
 			   inverseJoinColumns = { @JoinColumn(name = "fk_material") })
 	private Set<Material> materiales;
 
-	@ManyToMany(mappedBy = "productos") 
-	@JsonIgnore
-	public List<Compra> compras;
 
 	public Producto() {
 	}
