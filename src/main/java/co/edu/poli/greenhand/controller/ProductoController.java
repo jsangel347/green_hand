@@ -105,7 +105,7 @@ public class ProductoController {
 	}
 	
 	@PutMapping("/product/{id_}/{id}")
-	public Producto associate (@PathVariable Integer id_, @PathVariable Integer id) {
+	public Producto associate (@PathVariable Integer id_, @PathVariable String id) {
 		Producto producto = p_repository.findById(id_).get();
 		Material material = m_repository.findById(id).get();
 		

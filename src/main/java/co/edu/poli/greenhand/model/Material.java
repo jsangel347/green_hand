@@ -16,7 +16,7 @@ public class Material {
 
 	@Id
 	@Column(name = "id", unique = true)
-	public Integer id;
+	public String id;
 
 	@Column(name = "categoria")
 	public String categoria;
@@ -34,7 +34,7 @@ public class Material {
 	public Material() {
 	}
 
-	public Material(Integer id, String categoria, String nombre, Boolean reciclable, Set<Producto> productos) {
+	public Material(String id, String categoria, String nombre, Boolean reciclable, Set<Producto> productos) {
 		super();
 		this.id = id;
 		this.categoria = categoria;
@@ -43,11 +43,11 @@ public class Material {
 		this.productos = productos;
 	}
 
-	public Integer getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

@@ -60,8 +60,8 @@ public class MaterialController {
 	@PutMapping("/material/{id}")
 	@ApiOperation(value="*** Service Method Put materials***", notes = "***Put Materials to MySQL///WebApp***")
 	@ApiResponses(value= {@ApiResponse(code=404, message="***Error put material!! no path found***")})
-	public Material updateMaterial(@PathVariable Integer id, @RequestBody Material material) {
-		Material m_update = m_repository.getById(id);
+	public Material updateMaterial(@PathVariable String id, @RequestBody Material material) {
+		Material m_update = m_repository.findById(id).get();
 
 		m_update.setCategoria(material.getCategoria());
 		m_update.setNombre(material.getNombre());
@@ -69,14 +69,15 @@ public class MaterialController {
 
 		m_repository.save(m_update);
 
-		return material;
+		return m_update;
 	}
 
 	@DeleteMapping("/material/{id}")
 	@ApiOperation(value="*** Service Method Delete material***", notes = "***Delete Material to MySQL///WebApp***")
 	@ApiResponses(value= {@ApiResponse(code=404, message="***Error delete material!! no path found***")})
-	public Object deleteMaterial(@RequestParam("id") Integer id) {
+	public Material deleteMaterial(@RequestParam("id") String id) {
+		Material _material = m_repository.findById(id).get();
 		m_repository.deleteById(id);
-		return "El material se ha eliminado correctamente";
+		return _material;
 	}
 }
