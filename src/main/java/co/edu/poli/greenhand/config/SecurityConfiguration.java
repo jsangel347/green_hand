@@ -1,6 +1,6 @@
 package co.edu.poli.greenhand.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
+/*import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -32,8 +32,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 			.csrf().disable() //Cross-Site Request Forgery (falsificación de petición en sitios cruzados) 
 			.authorizeRequests()
 			//SE INCLUYEN LAS URL QUE SEA NECESARIO PROTEGER
-			.antMatchers(HttpMethod.GET, "/api/v1/material/").hasRole("ADMIN")
-			.antMatchers(HttpMethod.PUT, "/api/v1/material/{id}").hasRole("ADMIN")
+			//.antMatchers(HttpMethod.GET, "/api/v1/material/").hasRole("ADMIN")
+			//.antMatchers(HttpMethod.PUT, "/api/v1/material/{id}").hasRole("ADMIN")
 			.anyRequest().authenticated() //For any other request, you do not need specific role but still need to be authenticated. 
 			.and() 
 			.formLogin()//authentication method 
@@ -49,4 +49,4 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		return encoder;
 	}
 	
-}
+}*/

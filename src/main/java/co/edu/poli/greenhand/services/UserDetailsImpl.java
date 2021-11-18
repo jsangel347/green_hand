@@ -1,6 +1,6 @@
 
 package co.edu.poli.greenhand.services;
-
+/*
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
@@ -71,3 +71,4 @@ public class UserDetailsImpl implements UserDetails {
 	}
 
 }
+*/
