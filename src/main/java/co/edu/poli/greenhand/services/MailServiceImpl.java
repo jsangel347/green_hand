@@ -1,4 +1,4 @@
-package co.edu.poli.greenhand.services;
+/*package co.edu.poli.greenhand.services;
 
 import java.io.File;
 
@@ -54,3 +54,4 @@ public class MailServiceImpl implements MailService {
     }
 
 }
+*/

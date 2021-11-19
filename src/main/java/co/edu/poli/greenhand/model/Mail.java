@@ -1,4 +1,4 @@
-package co.edu.poli.greenhand.model;
+/*package co.edu.poli.greenhand.model;
 
 import java.util.Date;
 import java.util.List;
@@ -83,4 +83,4 @@ public class Mail {
         this.attachments = attachments;
     }
  
-}
+}*/
