@@ -33,7 +33,6 @@ public class Producto {
 	}
 
 	public Producto(Integer id, String nombre, Set<Material> materiales) {
-		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.materiales = materiales;

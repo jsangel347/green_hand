@@ -13,12 +13,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import co.edu.poli.greenhand.model.Mail;
+//import co.edu.poli.greenhand.model.Mail;
 import co.edu.poli.greenhand.model.Material;
 import co.edu.poli.greenhand.model.Producto;
 import co.edu.poli.greenhand.repository.MaterialRepository;
 import co.edu.poli.greenhand.repository.ProductoRepository;
-import co.edu.poli.greenhand.services.MailService;
+//import co.edu.poli.greenhand.services.MailService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -34,8 +34,8 @@ public class ProductoController {
 	private ProductoRepository p_repository;
 	@Autowired
 	private MaterialRepository m_repository;
-	@Autowired
-	private MailService notificationService;
+	//@Autowired
+	//private MailService notificationService;
 
 	@GetMapping("/product")
 	@ApiOperation(value="*** Service Method Get All products***", notes = "***Get All Products to MySQL///WebApp***")
@@ -57,13 +57,13 @@ public class ProductoController {
 	@ApiResponses(value= {@ApiResponse(code=404, message="***Error post a product!! no path found***")})
 	public Producto insertProducto(@RequestBody Producto producto) {
 		
-		Mail mail = new Mail();
+		/*Mail mail = new Mail();
 		
 		mail.setMailTo("fmoreno@poligran.edu.co");
 		mail.setMailSubject("Nuevos productos disponibles!");
 		mail.setMailContent("Ahora puedes ver nuevos productos para tu plan de reciclaje en greenhand!");
 		
-		notificationService.sendEmail(mail);
+		notificationService.sendEmail(mail);*/
 		return p_repository.save(producto);
 	}
 
