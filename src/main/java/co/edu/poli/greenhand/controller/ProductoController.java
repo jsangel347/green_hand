@@ -52,7 +52,7 @@ public class ProductoController {
 		return producto;
 	}
 	
-	@PostMapping("/product")
+	@PostMapping("/product")//SOLO ADMIN
 	@ApiOperation(value="*** Service Method Post a product***", notes = "***Post a product to MySQL///WebApp***")
 	@ApiResponses(value= {@ApiResponse(code=404, message="***Error post a product!! no path found***")})
 	public Producto insertProducto(@RequestBody Producto producto) {
@@ -77,7 +77,7 @@ public class ProductoController {
 
 	
 
-	@PutMapping("/product/{id_}")
+	@PutMapping("/product/{id_}")//SOLO ADMIN
 	@ApiOperation(value="*** Service Method Put a product by Id***", notes = "***Put a product by Id to MySQL///WebApp***")
 	@ApiResponses(value= {@ApiResponse(code=404, message="***Error put a store by Id!! no path found***")})
 	public Producto updateProducto(@PathVariable Integer id_, @RequestBody Producto producto) {
@@ -87,14 +87,12 @@ public class ProductoController {
 		c_update.setNombre(producto.getNombre());
 		c_update.setMateriales(producto.getMateriales());
 		
-		
-
 		p_repository.save(c_update);
 
 		return producto;
 	}
 
-	@DeleteMapping("/product/{id_}")		
+	@DeleteMapping("/product/{id_}")//SOLO ADMIN	
 	@ApiOperation(value="*** Service Method Delete a product***", notes = "***Delete a Product to MySQL///WebApp***")
 	@ApiResponses(value= {@ApiResponse(code=404, message="***Error delete a product!! no path found***")})
 	public Producto deleteProducto(@PathVariable Integer id_) {
@@ -104,7 +102,7 @@ public class ProductoController {
 		return productodb;
 	}
 	
-	@PutMapping("/product/{id_}/{id}")
+	@PutMapping("/product/{id_}/{id}")//SOLO ADMIN
 	public Producto associate (@PathVariable Integer id_, @PathVariable String id) {
 		Producto producto = p_repository.findById(id_).get();
 		Material material = m_repository.findById(id).get();
