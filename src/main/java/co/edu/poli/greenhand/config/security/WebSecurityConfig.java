@@ -14,6 +14,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import co.edu.poli.greenhand.config.security.jwt.AuthEntryPointJwt;
+import co.edu.poli.greenhand.config.security.jwt.AuthTokenFilter;
 import co.edu.poli.greenhand.services.UserDetailsServiceImpl;
 
 
@@ -24,7 +26,7 @@ import co.edu.poli.greenhand.services.UserDetailsServiceImpl;
 		// jsr250Enabled = true,
 		prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-	/*@Autowired
+	@Autowired
 	UserDetailsServiceImpl userDetailsService;
 
 	@Autowired
@@ -61,5 +63,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.anyRequest().authenticated();
 
 		http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
-	}*/
+	}
 }
